@@ -1,3 +1,14 @@
+参考文章：https://blog.csdn.net/zhuting__xf/article/details/132673437
+
+2024-1-16 19:00 ，在Win10虚拟机加载HelloWorld.sys成功。
+步骤：
+1. github下载项目至本地
+2. 编译项目(PS:直接编译可能不通过，要做些修改)
+3. 管理员权限运行命令：`kdmapper_Release.exe HelloWorld.sys`
+这种方式加载的驱动没有驱动对象，但可以使用未导出的`IoCreateDriver`函数创建，有了驱动对象就可以创建驱动设备进行通信。
+PS: 应该是说，不能在DriverEntry中直接传递进来的驱动对象指针，要先使用`IoCreateDriver`函数创建？
+
+
 # KDMapper
 
 Original creator https://github.com/z175
